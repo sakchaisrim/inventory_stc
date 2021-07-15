@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "noty": "^3.2.0-beta",
+        "qrcode.vue": "^3.2.2",
         "sweetalert2": "^9.10.12",
         "vue-router": "^3.1.6"
     }

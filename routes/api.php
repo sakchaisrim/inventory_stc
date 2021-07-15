@@ -63,3 +63,21 @@ Route::Get('/today/income', 'Api\PosController@TodayIncome');
 Route::Get('/today/due', 'Api\PosController@TodayDue');
 Route::Get('/today/expense', 'Api\PosController@TodayExpense');
 Route::Get('/today/stockout', 'Api\PosController@Stockout');
+Route::Get('/today/stockout', 'Api\PosController@Stockout');
+
+
+Route::get('/genarateQrcode/{id}', function ($id) {
+ 
+//     \QrCode::size(500)
+//             ->format('png')
+//             ->generate($id, public_path('images/qrcode.png'));
+
+//   return view('qrcode',compact('id'));
+ 
+  $image = QrCode::format('png')
+    // ->merge(public_path("images/$filename.png"), 0.5, true)
+    ->size(500)->errorCorrection('H')
+    ->generate($id);
+
+return response($image)->header('Content-type','image/png');
+});
